@@ -1,12 +1,14 @@
 import * as nodemailer from 'nodemailer';
+import dotenv from "dotenv";
+dotenv.config()
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com", //establemcemos el tipo de envio
+  host: process.env.NODEMAILER_HOST, //establemcemos el tipo de envio
   port: 587, //no se por que es este puerto en especifico
   secure: false,
   auth: {
-    user: "libreriaghandiapi@gmail.com",
-    pass: "bmeolkcsvavajcch"
+    user: process.env.NODEMAILER_USER,
+    pass: process.env.NODEMAILER_PASS
   }
 });
 
